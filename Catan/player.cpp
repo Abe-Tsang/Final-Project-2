@@ -132,3 +132,6 @@ bool PlayerPrototype::getVerticalRoad(int i, int j){
     return false;
 }
 
+bool PlayerPrototype::showBuilding(int i, int j){
+    return this->building_[i][j];
+}

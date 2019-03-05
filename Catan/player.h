@@ -20,6 +20,7 @@ public:
     bool getBuilding(int i, int j);
     bool getHorizontalRoad(int i, int j);
     bool getVerticalRoad(int i, int j);
+    bool showBuilding(int i, int j);
 protected:
     bool horizontalRoad_[4][5];
     bool verticalRoad_[5][4];

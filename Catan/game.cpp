@@ -57,12 +57,183 @@ int Game::rollDice(){
 void Game::turn(PlayerPrototype *p1, PlayerPrototype *p2, PlayerPrototype *p3, PlayerPrototype *p4){
     int diceResult = rollDice();
 
-    p1->getBuilding(0, 0);
+    /*p1->getBuilding(0, 0);
     for(int i = 0; i < 4; i++){
         p1->getBrick();
         p1->getWood();
-    }
+    }*/
 
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 4; j++){
+            if(bigArea_[i][j]->showRandomNumber() == diceResult){
+                if(strcmp(bigArea_[i][j]->showResourceType().c_str(), "wood") == 0){
+
+                    if(p1->showBuilding(i, j) == true){
+                        p1->getWood();
+                    }
+                    if(p1->showBuilding(i + 1, j) == true){
+                        p1->getWood();
+                    }
+                    if(p1->showBuilding(i, j + 1) == true){
+                        p1->getWood();
+                    }
+                    if(p1->showBuilding(i + 1, j + 1) == true){
+                        p1->getWood();
+                    }
+
+                    if(p2->showBuilding(i, j) == true){
+                        p2->getWood();
+                    }
+                    if(p2->showBuilding(i + 1, j) == true){
+                        p2->getWood();
+                    }
+                    if(p2->showBuilding(i, j + 1) == true){
+                        p2->getWood();
+                    }
+                    if(p2->showBuilding(i + 1, j + 1) == true){
+                        p2->getWood();
+                    }
+
+                    if(p3->showBuilding(i, j) == true){
+                        p3->getWood();
+                    }
+                    if(p3->showBuilding(i + 1, j) == true){
+                        p3->getWood();
+                    }
+                    if(p3->showBuilding(i, j + 1) == true){
+                        p3->getWood();
+                    }
+                    if(p3->showBuilding(i + 1, j + 1) == true){
+                        p3->getWood();
+                    }
+
+                    if(p4->showBuilding(i, j) == true){
+                        p4->getWood();
+                    }
+                    if(p4->showBuilding(i + 1, j) == true){
+                        p4->getWood();
+                    }
+                    if(p4->showBuilding(i, j + 1) == true){
+                        p4->getWood();
+                    }
+                    if(p4->showBuilding(i + 1, j + 1) == true){
+                        p4->getWood();
+                    }
+
+                }
+                else if(strcmp(bigArea_[i][j]->showResourceType().c_str(), "brick") == 0){
+
+                    if(p1->showBuilding(i, j) == true){
+                        p1->getBrick();
+                    }
+                    if(p1->showBuilding(i + 1, j) == true){
+                        p1->getBrick();
+                    }
+                    if(p1->showBuilding(i, j + 1) == true){
+                        p1->getBrick();
+                    }
+                    if(p1->showBuilding(i + 1, j + 1) == true){
+                        p1->getBrick();
+                    }
+
+                    if(p2->showBuilding(i, j) == true){
+                        p2->getBrick();
+                    }
+                    if(p2->showBuilding(i + 1, j) == true){
+                        p2->getBrick();
+                    }
+                    if(p2->showBuilding(i, j + 1) == true){
+                        p2->getBrick();
+                    }
+                    if(p2->showBuilding(i + 1, j + 1) == true){
+                        p2->getBrick();
+                    }
+
+                    if(p3->showBuilding(i, j) == true){
+                        p3->getBrick();
+                    }
+                    if(p3->showBuilding(i + 1, j) == true){
+                        p3->getBrick();
+                    }
+                    if(p3->showBuilding(i, j + 1) == true){
+                        p3->getBrick();
+                    }
+                    if(p3->showBuilding(i + 1, j + 1) == true){
+                        p3->getBrick();
+                    }
+
+                    if(p4->showBuilding(i, j) == true){
+                        p4->getBrick();
+                    }
+                    if(p4->showBuilding(i + 1, j) == true){
+                        p4->getBrick();
+                    }
+                    if(p4->showBuilding(i, j + 1) == true){
+                        p4->getBrick();
+                    }
+                    if(p4->showBuilding(i + 1, j + 1) == true){
+                        p4->getBrick();
+                    }
+
+                }
+                else if(strcmp(bigArea_[i][j]->showResourceType().c_str(), "sheep") == 0){
+
+                    if(p1->showBuilding(i, j) == true){
+                        p1->getSheep();
+                    }
+                    if(p1->showBuilding(i + 1, j) == true){
+                        p1->getSheep();
+                    }
+                    if(p1->showBuilding(i, j + 1) == true){
+                        p1->getSheep();
+                    }
+                    if(p1->showBuilding(i + 1, j + 1) == true){
+                        p1->getSheep();
+                    }
+
+                    if(p2->showBuilding(i, j) == true){
+                        p2->getSheep();
+                    }
+                    if(p2->showBuilding(i + 1, j) == true){
+                        p2->getSheep();
+                    }
+                    if(p2->showBuilding(i, j + 1) == true){
+                        p2->getSheep();
+                    }
+                    if(p2->showBuilding(i + 1, j + 1) == true){
+                        p2->getSheep();
+                    }
+
+                    if(p3->showBuilding(i, j) == true){
+                        p3->getSheep();
+                    }
+                    if(p3->showBuilding(i + 1, j) == true){
+                        p3->getSheep();
+                    }
+                    if(p3->showBuilding(i, j + 1) == true){
+                        p3->getSheep();
+                    }
+                    if(p3->showBuilding(i + 1, j + 1) == true){
+                        p3->getSheep();
+                    }
+
+                    if(p4->showBuilding(i, j) == true){
+                        p4->getSheep();
+                    }
+                    if(p4->showBuilding(i + 1, j) == true){
+                        p4->getSheep();
+                    }
+                    if(p4->showBuilding(i, j + 1) == true){
+                        p4->getSheep();
+                    }
+                    if(p4->showBuilding(i + 1, j + 1) == true){
+                        p4->getSheep();
+                    }
+
+                }
+            }
+        }
+    }
 }
 
 bool Game::trade(PlayerPrototype *firstPlayer, std::string firstItemType, PlayerPrototype *secondPlayer, std::string secondItemType){
