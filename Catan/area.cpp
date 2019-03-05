@@ -83,7 +83,6 @@ void Area::mousePressEvent(QGraphicsSceneMouseEvent *event)
         }
         else{
             emit Area::AreaClicked(i_, j_, areaType_);
-            //Area::changeOwnership(Qt::black);
         }
     }
     else{
@@ -105,10 +104,6 @@ double Area::Distance(const Area &other) const {
   double distance = (x_ - other.get_x()) * (x_ - other.get_x());
   distance += (y_ - other.y_) * (y_ - other.y_);
   return sqrt(distance);
-}
-
-void Area::changeOwnershipSlot(QColor color){
-    this->color_ = color;
 }
 
 int Area::random(int max, int min){

@@ -33,7 +33,7 @@ public:
     int showRandomNumber();
 
 private slots:
-    void changeOwnershipSlot(QColor color);
+
 
 signals:
     void AreaClicked(int i, int j, std::string areaType);

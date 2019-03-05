@@ -22,7 +22,7 @@ private slots:
     void ClickAreaSlot(int i, int j, std::string areaType);
 
 signals:
-    void ownershipChanged(QColor color);
+
 
 private:
     Ui::MainWindow *ui;

@@ -207,7 +207,6 @@ void MainWindow::ClickAreaSlot(int i, int j, std::string areaType){
     qDebug() << i;
     qDebug() << j;
     qDebug() << areaType.c_str();
-    emit MainWindow::ownershipChanged(Qt::black);
 }
 
 MainWindow::~MainWindow()

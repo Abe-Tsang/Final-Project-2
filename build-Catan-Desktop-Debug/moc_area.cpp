@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Area_t {
-    QByteArrayData data[16];
-    char stringdata[131];
+    QByteArrayData data[14];
+    char stringdata[105];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,14 +42,11 @@ QT_MOC_LITERAL(9, 60, 1),
 QT_MOC_LITERAL(10, 62, 20),
 QT_MOC_LITERAL(11, 83, 1),
 QT_MOC_LITERAL(12, 85, 1),
-QT_MOC_LITERAL(13, 87, 16),
-QT_MOC_LITERAL(14, 104, 19),
-QT_MOC_LITERAL(15, 124, 5)
+QT_MOC_LITERAL(13, 87, 16)
     },
     "Area\0AreaClicked\0\0i\0j\0std::string\0"
     "areaType\0DeleteArea\0Area*\0p\0"
     "DistanceAreasClicked\0x\0y\0AreaRightClicked\0"
-    "changeOwnershipSlot\0color\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -59,7 +56,7 @@ static const uint qt_meta_data_Area[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -67,22 +64,16 @@ static const uint qt_meta_data_Area[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    3,   39,    2, 0x06,
-       7,    1,   46,    2, 0x06,
-      10,    2,   49,    2, 0x06,
-      13,    2,   54,    2, 0x06,
-
- // slots: name, argc, parameters, tag, flags
-      14,    1,   59,    2, 0x08,
+       1,    3,   34,    2, 0x06,
+       7,    1,   41,    2, 0x06,
+      10,    2,   44,    2, 0x06,
+      13,    2,   49,    2, 0x06,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int, QMetaType::Int, 0x80000000 | 5,    3,    4,    6,
     QMetaType::Void, 0x80000000 | 8,    9,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,   11,   12,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,   11,   12,
-
- // slots: parameters
-    QMetaType::Void, QMetaType::QColor,   15,
 
        0        // eod
 };
@@ -96,7 +87,6 @@ void Area::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         case 1: _t->DeleteArea((*reinterpret_cast< Area*(*)>(_a[1]))); break;
         case 2: _t->DistanceAreasClicked((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 3: _t->AreaRightClicked((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 4: _t->changeOwnershipSlot((*reinterpret_cast< QColor(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -167,13 +157,13 @@ int Area::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 4;
     }
     return _id;
 }
