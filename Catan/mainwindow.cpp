@@ -185,7 +185,7 @@ MainWindow::MainWindow(QWidget *parent) :
         }
     }
 
-    Player *p = new Player(0, Qt::white);
+    /*Player *p = new Player(0, Qt::white);
     PlayerPrototype *p1 = p->clone();
     PlayerPrototype *p2 = p->clone();
     PlayerPrototype *p3 = p->clone();
@@ -197,8 +197,9 @@ MainWindow::MainWindow(QWidget *parent) :
     p3->setColor(Qt::yellow);
     p3->setPlayerNumber(3);
     p4->setColor(Qt::green);
-    p4->setPlayerNumber(4);
-    //Game *g = new Game();
+    p4->setPlayerNumber(4);*/
+    Game *g = new Game(pointArea, horizontalArea, verticalArea, bigArea);
+
 
 }
 

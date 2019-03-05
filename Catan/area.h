@@ -27,6 +27,11 @@ public:
     static bool get_delete_mode() { return delete_mode_; }
     static void set_delete_mode(bool val) { delete_mode_ = val; }
 
+    int random(int max, int min);
+    int rollDice();
+    std::string showResourceType();
+    int showRandomNumber();
+
 private slots:
     void changeOwnershipSlot(QColor color);
 
@@ -47,6 +52,8 @@ private:
   int i_;
   int j_;
   std::string areaType_;
+  int randomNumber_;
+  std::string resourceType_;
 
   QColor color_;
 

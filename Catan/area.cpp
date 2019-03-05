@@ -23,6 +23,21 @@ Area::Area(QColor color, const int x, const int y, const int width, const int he
   i_ = i;
   j_ = j;
   areaType_ = areaType;
+  randomNumber_ = -1;
+  if(areaType_ == "bigArea"){
+      randomNumber_ = rollDice();
+      int randomResourceType = random(3, 1);
+      if(randomResourceType == 1){
+          resourceType_ = "wood";
+      }
+      else if(randomResourceType == 2){
+          resourceType_ = "brick";
+      }
+      if(randomResourceType == 3){
+          resourceType_ = "sheep";
+      }
+  }
+
   //connect(); connect sender object to receiver object
 }
 
@@ -94,6 +109,27 @@ double Area::Distance(const Area &other) const {
 
 void Area::changeOwnershipSlot(QColor color){
     this->color_ = color;
+}
+
+int Area::random(int max, int min){
+    static bool first = true;
+    if(first){
+        srand(time(NULL));
+        first = false;
+    }
+    return min + rand() % ((max + 1) - min);
+}
+
+int Area::rollDice(){
+    return random(6, 1) + random(6, 1);
+}
+
+std::string Area::showResourceType(){
+    return this->resourceType_;
+}
+
+int Area::showRandomNumber(){
+    return this->randomNumber_;
 }
 
 /**
