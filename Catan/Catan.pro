@@ -17,11 +17,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     area.cpp \
     player.cpp \
-    game.cpp
+    game.cpp \
+    ai.cpp
 
 HEADERS  += mainwindow.h \
     area.h \
     player.h \
-    game.h
+    game.h \
+    ai.h
 
 FORMS    += mainwindow.ui

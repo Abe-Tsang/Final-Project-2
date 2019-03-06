@@ -31,6 +31,7 @@ public:
     int rollDice();
     std::string showResourceType();
     int showRandomNumber();
+    void setColor(QColor color);
 
 private slots:
 

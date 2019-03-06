@@ -7,8 +7,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "area.h"
-#include "player.h"
 #include "game.h"
+#include "ai.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -185,28 +185,26 @@ MainWindow::MainWindow(QWidget *parent) :
         }
     }
 
-    /*Player *p = new Player(0, Qt::white);
-    PlayerPrototype *p1 = p->clone();
-    PlayerPrototype *p2 = p->clone();
-    PlayerPrototype *p3 = p->clone();
-    PlayerPrototype *p4 = p->clone();
-    p1->setColor(Qt::red);
-    p1->setPlayerNumber(1);
-    p2->setColor(Qt::blue);
-    p2->setPlayerNumber(2);
-    p3->setColor(Qt::yellow);
-    p3->setPlayerNumber(3);
-    p4->setColor(Qt::green);
-    p4->setPlayerNumber(4);*/
     Game *g = new Game(pointArea, horizontalArea, verticalArea, bigArea);
 
-
+    //bigArea[0][0]->setColor(Qt::black); //This works.
 }
 
 void MainWindow::ClickAreaSlot(int i, int j, std::string areaType){
     qDebug() << i;
     qDebug() << j;
     qDebug() << areaType.c_str();
+    /*// This works too.
+    if(areaType == "pointArea"){
+        pointArea[i][j]->setColor(Qt::black);
+    }
+    else if(areaType == "horizontalArea"){
+        horizontalArea[i][j]->setColor(Qt::black);
+    }
+    else if(areaType == "verticalArea"){
+        verticalArea[i][j]->setColor(Qt::black);
+    }
+    */
 }
 
 MainWindow::~MainWindow()

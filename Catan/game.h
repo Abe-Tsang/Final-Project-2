@@ -3,6 +3,7 @@
 
 #include "player.h"
 #include "area.h"
+#include "ai.h"
 
 class Game{
 public:

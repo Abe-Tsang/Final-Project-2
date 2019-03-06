@@ -127,6 +127,10 @@ int Area::showRandomNumber(){
     return this->randomNumber_;
 }
 
+void Area::setColor(QColor color){
+    this->color_ = color;
+}
+
 /**
   Makes it so the == operator will have the behavior that you
   expect when comparing Areas.

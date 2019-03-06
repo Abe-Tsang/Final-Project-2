@@ -3,6 +3,7 @@
 #include "game.h"
 #include "player.h"
 #include "area.h"
+#include "ai.h"
 
 Game::Game(Area *pointArea[5][5], Area *horizontalArea[4][5], Area *verticalArea[5][4], Area *bigArea[4][4]){
     Player *p = new Player(0, Qt::white);
