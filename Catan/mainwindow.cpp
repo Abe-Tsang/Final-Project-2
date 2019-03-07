@@ -185,7 +185,7 @@ MainWindow::MainWindow(QWidget *parent) :
         }
     }
 
-    Game *g = new Game(pointArea, horizontalArea, verticalArea, bigArea);
+    Game *g = new Game(pointArea, horizontalArea, verticalArea, bigArea, 3);
 
     //bigArea[0][0]->setColor(Qt::black); //This works.
 }

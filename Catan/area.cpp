@@ -119,11 +119,11 @@ int Area::rollDice(){
     return random(6, 1) + random(6, 1);
 }
 
-std::string Area::showResourceType(){
+std::string Area::getResourceType(){
     return this->resourceType_;
 }
 
-int Area::showRandomNumber(){
+int Area::getRandomNumber(){
     return this->randomNumber_;
 }
 

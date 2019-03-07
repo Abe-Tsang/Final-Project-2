@@ -5,7 +5,14 @@
 #include "area.h"
 #include "ai.h"
 
-Game::Game(Area *pointArea[5][5], Area *horizontalArea[4][5], Area *verticalArea[5][4], Area *bigArea[4][4]){
+Game::Game(Area *pointArea[5][5], Area *horizontalArea[4][5], Area *verticalArea[5][4], Area *bigArea[4][4], int numberOfPlayers){
+    if(numberOfPlayers >= 0 || numberOfPlayers <= 4){
+        numberOfAIs = 4 - numberOfPlayers;
+    }
+    AI * artificialIntelligence[numberOfAIs];
+    for(int i = 0; i < numberOfAIs; i++){
+        artificialIntelligence[i] = new AI();
+    }
     Player *p = new Player(0, Qt::white);
     PlayerPrototype *p1 = p->clone();
     PlayerPrototype *p2 = p->clone();
@@ -58,177 +65,177 @@ int Game::rollDice(){
 void Game::turn(PlayerPrototype *p1, PlayerPrototype *p2, PlayerPrototype *p3, PlayerPrototype *p4){
     int diceResult = rollDice();
 
-    /*p1->getBuilding(0, 0);
+    /*p1->receiveBuilding(0, 0);
     for(int i = 0; i < 4; i++){
-        p1->getBrick();
-        p1->getWood();
+        p1->receiveBrick();
+        p1->receiveWood();
     }*/
 
     for(int i = 0; i < 4; i++){
         for(int j = 0; j < 4; j++){
-            if(bigArea_[i][j]->showRandomNumber() == diceResult){
-                if(strcmp(bigArea_[i][j]->showResourceType().c_str(), "wood") == 0){
+            if(bigArea_[i][j]->getRandomNumber() == diceResult){
+                if(strcmp(bigArea_[i][j]->getResourceType().c_str(), "wood") == 0){
 
-                    if(p1->showBuilding(i, j) == true){
-                        p1->getWood();
+                    if(p1->getBuilding(i, j) == true){
+                        p1->receiveWood();
                     }
-                    if(p1->showBuilding(i + 1, j) == true){
-                        p1->getWood();
+                    if(p1->getBuilding(i + 1, j) == true){
+                        p1->receiveWood();
                     }
-                    if(p1->showBuilding(i, j + 1) == true){
-                        p1->getWood();
+                    if(p1->getBuilding(i, j + 1) == true){
+                        p1->receiveWood();
                     }
-                    if(p1->showBuilding(i + 1, j + 1) == true){
-                        p1->getWood();
-                    }
-
-                    if(p2->showBuilding(i, j) == true){
-                        p2->getWood();
-                    }
-                    if(p2->showBuilding(i + 1, j) == true){
-                        p2->getWood();
-                    }
-                    if(p2->showBuilding(i, j + 1) == true){
-                        p2->getWood();
-                    }
-                    if(p2->showBuilding(i + 1, j + 1) == true){
-                        p2->getWood();
+                    if(p1->getBuilding(i + 1, j + 1) == true){
+                        p1->receiveWood();
                     }
 
-                    if(p3->showBuilding(i, j) == true){
-                        p3->getWood();
+                    if(p2->getBuilding(i, j) == true){
+                        p2->receiveWood();
                     }
-                    if(p3->showBuilding(i + 1, j) == true){
-                        p3->getWood();
+                    if(p2->getBuilding(i + 1, j) == true){
+                        p2->receiveWood();
                     }
-                    if(p3->showBuilding(i, j + 1) == true){
-                        p3->getWood();
+                    if(p2->getBuilding(i, j + 1) == true){
+                        p2->receiveWood();
                     }
-                    if(p3->showBuilding(i + 1, j + 1) == true){
-                        p3->getWood();
-                    }
-
-                    if(p4->showBuilding(i, j) == true){
-                        p4->getWood();
-                    }
-                    if(p4->showBuilding(i + 1, j) == true){
-                        p4->getWood();
-                    }
-                    if(p4->showBuilding(i, j + 1) == true){
-                        p4->getWood();
-                    }
-                    if(p4->showBuilding(i + 1, j + 1) == true){
-                        p4->getWood();
+                    if(p2->getBuilding(i + 1, j + 1) == true){
+                        p2->receiveWood();
                     }
 
-                }
-                else if(strcmp(bigArea_[i][j]->showResourceType().c_str(), "brick") == 0){
-
-                    if(p1->showBuilding(i, j) == true){
-                        p1->getBrick();
+                    if(p3->getBuilding(i, j) == true){
+                        p3->receiveWood();
                     }
-                    if(p1->showBuilding(i + 1, j) == true){
-                        p1->getBrick();
+                    if(p3->getBuilding(i + 1, j) == true){
+                        p3->receiveWood();
                     }
-                    if(p1->showBuilding(i, j + 1) == true){
-                        p1->getBrick();
+                    if(p3->getBuilding(i, j + 1) == true){
+                        p3->receiveWood();
                     }
-                    if(p1->showBuilding(i + 1, j + 1) == true){
-                        p1->getBrick();
+                    if(p3->getBuilding(i + 1, j + 1) == true){
+                        p3->receiveWood();
                     }
 
-                    if(p2->showBuilding(i, j) == true){
-                        p2->getBrick();
+                    if(p4->getBuilding(i, j) == true){
+                        p4->receiveWood();
                     }
-                    if(p2->showBuilding(i + 1, j) == true){
-                        p2->getBrick();
+                    if(p4->getBuilding(i + 1, j) == true){
+                        p4->receiveWood();
                     }
-                    if(p2->showBuilding(i, j + 1) == true){
-                        p2->getBrick();
+                    if(p4->getBuilding(i, j + 1) == true){
+                        p4->receiveWood();
                     }
-                    if(p2->showBuilding(i + 1, j + 1) == true){
-                        p2->getBrick();
-                    }
-
-                    if(p3->showBuilding(i, j) == true){
-                        p3->getBrick();
-                    }
-                    if(p3->showBuilding(i + 1, j) == true){
-                        p3->getBrick();
-                    }
-                    if(p3->showBuilding(i, j + 1) == true){
-                        p3->getBrick();
-                    }
-                    if(p3->showBuilding(i + 1, j + 1) == true){
-                        p3->getBrick();
-                    }
-
-                    if(p4->showBuilding(i, j) == true){
-                        p4->getBrick();
-                    }
-                    if(p4->showBuilding(i + 1, j) == true){
-                        p4->getBrick();
-                    }
-                    if(p4->showBuilding(i, j + 1) == true){
-                        p4->getBrick();
-                    }
-                    if(p4->showBuilding(i + 1, j + 1) == true){
-                        p4->getBrick();
+                    if(p4->getBuilding(i + 1, j + 1) == true){
+                        p4->receiveWood();
                     }
 
                 }
-                else if(strcmp(bigArea_[i][j]->showResourceType().c_str(), "sheep") == 0){
+                else if(strcmp(bigArea_[i][j]->getResourceType().c_str(), "brick") == 0){
 
-                    if(p1->showBuilding(i, j) == true){
-                        p1->getSheep();
+                    if(p1->getBuilding(i, j) == true){
+                        p1->receiveBrick();
                     }
-                    if(p1->showBuilding(i + 1, j) == true){
-                        p1->getSheep();
+                    if(p1->getBuilding(i + 1, j) == true){
+                        p1->receiveBrick();
                     }
-                    if(p1->showBuilding(i, j + 1) == true){
-                        p1->getSheep();
+                    if(p1->getBuilding(i, j + 1) == true){
+                        p1->receiveBrick();
                     }
-                    if(p1->showBuilding(i + 1, j + 1) == true){
-                        p1->getSheep();
-                    }
-
-                    if(p2->showBuilding(i, j) == true){
-                        p2->getSheep();
-                    }
-                    if(p2->showBuilding(i + 1, j) == true){
-                        p2->getSheep();
-                    }
-                    if(p2->showBuilding(i, j + 1) == true){
-                        p2->getSheep();
-                    }
-                    if(p2->showBuilding(i + 1, j + 1) == true){
-                        p2->getSheep();
+                    if(p1->getBuilding(i + 1, j + 1) == true){
+                        p1->receiveBrick();
                     }
 
-                    if(p3->showBuilding(i, j) == true){
-                        p3->getSheep();
+                    if(p2->getBuilding(i, j) == true){
+                        p2->receiveBrick();
                     }
-                    if(p3->showBuilding(i + 1, j) == true){
-                        p3->getSheep();
+                    if(p2->getBuilding(i + 1, j) == true){
+                        p2->receiveBrick();
                     }
-                    if(p3->showBuilding(i, j + 1) == true){
-                        p3->getSheep();
+                    if(p2->getBuilding(i, j + 1) == true){
+                        p2->receiveBrick();
                     }
-                    if(p3->showBuilding(i + 1, j + 1) == true){
-                        p3->getSheep();
+                    if(p2->getBuilding(i + 1, j + 1) == true){
+                        p2->receiveBrick();
                     }
 
-                    if(p4->showBuilding(i, j) == true){
-                        p4->getSheep();
+                    if(p3->getBuilding(i, j) == true){
+                        p3->receiveBrick();
                     }
-                    if(p4->showBuilding(i + 1, j) == true){
-                        p4->getSheep();
+                    if(p3->getBuilding(i + 1, j) == true){
+                        p3->receiveBrick();
                     }
-                    if(p4->showBuilding(i, j + 1) == true){
-                        p4->getSheep();
+                    if(p3->getBuilding(i, j + 1) == true){
+                        p3->receiveBrick();
                     }
-                    if(p4->showBuilding(i + 1, j + 1) == true){
-                        p4->getSheep();
+                    if(p3->getBuilding(i + 1, j + 1) == true){
+                        p3->receiveBrick();
+                    }
+
+                    if(p4->getBuilding(i, j) == true){
+                        p4->receiveBrick();
+                    }
+                    if(p4->getBuilding(i + 1, j) == true){
+                        p4->receiveBrick();
+                    }
+                    if(p4->getBuilding(i, j + 1) == true){
+                        p4->receiveBrick();
+                    }
+                    if(p4->getBuilding(i + 1, j + 1) == true){
+                        p4->receiveBrick();
+                    }
+
+                }
+                else if(strcmp(bigArea_[i][j]->getResourceType().c_str(), "sheep") == 0){
+
+                    if(p1->getBuilding(i, j) == true){
+                        p1->receiveSheep();
+                    }
+                    if(p1->getBuilding(i + 1, j) == true){
+                        p1->receiveSheep();
+                    }
+                    if(p1->getBuilding(i, j + 1) == true){
+                        p1->receiveSheep();
+                    }
+                    if(p1->getBuilding(i + 1, j + 1) == true){
+                        p1->receiveSheep();
+                    }
+
+                    if(p2->getBuilding(i, j) == true){
+                        p2->receiveSheep();
+                    }
+                    if(p2->getBuilding(i + 1, j) == true){
+                        p2->receiveSheep();
+                    }
+                    if(p2->getBuilding(i, j + 1) == true){
+                        p2->receiveSheep();
+                    }
+                    if(p2->getBuilding(i + 1, j + 1) == true){
+                        p2->receiveSheep();
+                    }
+
+                    if(p3->getBuilding(i, j) == true){
+                        p3->receiveSheep();
+                    }
+                    if(p3->getBuilding(i + 1, j) == true){
+                        p3->receiveSheep();
+                    }
+                    if(p3->getBuilding(i, j + 1) == true){
+                        p3->receiveSheep();
+                    }
+                    if(p3->getBuilding(i + 1, j + 1) == true){
+                        p3->receiveSheep();
+                    }
+
+                    if(p4->getBuilding(i, j) == true){
+                        p4->receiveSheep();
+                    }
+                    if(p4->getBuilding(i + 1, j) == true){
+                        p4->receiveSheep();
+                    }
+                    if(p4->getBuilding(i, j + 1) == true){
+                        p4->receiveSheep();
+                    }
+                    if(p4->getBuilding(i + 1, j + 1) == true){
+                        p4->receiveSheep();
                     }
 
                 }
@@ -278,23 +285,23 @@ bool Game::trade(PlayerPrototype *firstPlayer, std::string firstItemType, Player
     }
 
     if(firstItemType == "wood"){
-        secondPlayer->getWood();
+        secondPlayer->receiveWood();
     }
     else if(firstItemType == "brick"){
-        secondPlayer->getBrick();
+        secondPlayer->receiveBrick();
     }
     else if(firstItemType == "sheep"){
-        secondPlayer->getSheep();
+        secondPlayer->receiveSheep();
     }
 
     if(secondItemType == "wood"){
-        firstPlayer->getWood();
+        firstPlayer->receiveWood();
     }
     else if(secondItemType == "brick"){
-        firstPlayer->getBrick();
+        firstPlayer->receiveBrick();
     }
     else if(secondItemType == "sheep"){
-        firstPlayer->getSheep();
+        firstPlayer->receiveSheep();
     }
 
     return true;

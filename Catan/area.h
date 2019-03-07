@@ -29,8 +29,8 @@ public:
 
     int random(int max, int min);
     int rollDice();
-    std::string showResourceType();
-    int showRandomNumber();
+    std::string getResourceType();
+    int getRandomNumber();
     void setColor(QColor color);
 
 private slots:

@@ -53,15 +53,15 @@ void PlayerPrototype::setPlayerNumber(int playerNumber){
     this->playerNumber_ = playerNumber;
 }
 
-void PlayerPrototype::getWood(){
+void PlayerPrototype::receiveWood(){
     this->wood_++;
 }
 
-void PlayerPrototype::getBrick(){
+void PlayerPrototype::receiveBrick(){
     this->brick_++;
 }
 
-void PlayerPrototype::getSheep(){
+void PlayerPrototype::receiveSheep(){
     this->sheep_++;
 }
 
@@ -89,19 +89,19 @@ bool PlayerPrototype::giveSheep(){
     return false;
 }
 
-int PlayerPrototype::showWood(){
+int PlayerPrototype::getWood(){
     return this->wood_;
 }
 
-int PlayerPrototype::showBrick(){
+int PlayerPrototype::getBrick(){
     return this->brick_;
 }
 
-int PlayerPrototype::showSheep(){
+int PlayerPrototype::getSheep(){
     return this->sheep_;
 }
 
-bool PlayerPrototype::getBuilding(int i, int j){
+bool PlayerPrototype::receiveBuilding(int i, int j){
     if(this->building_[i][j] == false && this->brick_ >= 4 && this->wood_ >= 4){
         this->building_[i][j] = true;
         this->brick_ -= 4;
@@ -112,7 +112,7 @@ bool PlayerPrototype::getBuilding(int i, int j){
     return false;
 }
 
-bool PlayerPrototype::getHorizontalRoad(int i, int j){
+bool PlayerPrototype::receiveHorizontalRoad(int i, int j){
     if(this->horizontalRoad_[i][j] == false && this->wood_ >= 2 && this->sheep_ >= 1){
         this->horizontalRoad_[i][j] = true;
         this->wood_ -= 2;
@@ -122,7 +122,7 @@ bool PlayerPrototype::getHorizontalRoad(int i, int j){
     return false;
 }
 
-bool PlayerPrototype::getVerticalRoad(int i, int j){
+bool PlayerPrototype::receiveVerticalRoad(int i, int j){
     if(this->verticalRoad_[i][j] == false && this->wood_ >= 2 && this->sheep_ >= 1){
         this->verticalRoad_[i][j] = true;
         this->wood_ -= 2;
@@ -132,6 +132,6 @@ bool PlayerPrototype::getVerticalRoad(int i, int j){
     return false;
 }
 
-bool PlayerPrototype::showBuilding(int i, int j){
+bool PlayerPrototype::getBuilding(int i, int j){
     return this->building_[i][j];
 }

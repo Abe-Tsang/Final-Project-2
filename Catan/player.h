@@ -8,19 +8,19 @@ public:
     virtual PlayerPrototype * clone() = 0;
     void setPlayerNumber(int playerNumber);
     void setColor(QColor color);
-    void getWood();
-    void getBrick();
-    void getSheep();
+    void receiveWood();
+    void receiveBrick();
+    void receiveSheep();
     bool giveWood();
     bool giveBrick();
     bool giveSheep();
-    int showWood();
-    int showBrick();
-    int showSheep();
+    int getWood();
+    int getBrick();
+    int getSheep();
+    bool receiveBuilding(int i, int j);
+    bool receiveHorizontalRoad(int i, int j);
+    bool receiveVerticalRoad(int i, int j);
     bool getBuilding(int i, int j);
-    bool getHorizontalRoad(int i, int j);
-    bool getVerticalRoad(int i, int j);
-    bool showBuilding(int i, int j);
 protected:
     bool horizontalRoad_[4][5];
     bool verticalRoad_[5][4];
